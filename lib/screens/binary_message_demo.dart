@@ -21,7 +21,7 @@ class _BinaryMessageDemoState extends State<BinaryMessageDemo> {
       body: Center(
         child: FilledButton.icon(onPressed: () async{
           try {
-            CustomBinaryMessenger.givenValue("Hello Platform");
+            CustomBinaryMessenger.givenValue("Hello Platform Demo");
           } catch (error) {
             showMessage(context, (error as PlatformException).message!);
           }
