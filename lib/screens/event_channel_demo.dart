@@ -16,7 +16,7 @@ class _EventChannelDemoState extends State<EventChannelDemo> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text("Event Channel Demo"),
+        title: const Text("Event Channel Demo Githud"),
       ),
       body: Center(
         child: StreamBuilder<int>(
