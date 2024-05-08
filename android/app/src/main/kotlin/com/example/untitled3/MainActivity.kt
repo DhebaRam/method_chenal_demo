@@ -12,7 +12,7 @@ import java.nio.ByteBuffer
 import java.nio.ByteOrder
 import kotlin.random.Random
 
-class MainActivity: FlutterActivity() {
+class MainActivity : FlutterActivity() {
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         //BinaryMessenger
@@ -85,7 +85,22 @@ class MainActivity: FlutterActivity() {
                 }
 
         super.configureFlutterEngine(flutterEngine)
+
+        MethodChannel(flutterEngine.getDartExecutor().getBinaryMessenger(), CHANNEL)
+                .setMethodCallHandler { call, result -> getFileList() }
     }
+
+    private fun getFileList(): List<String?>? {
+        val listOfFiles: Array<File> = File("/sdcard/musicPlayer").listFiles()
+        val list: List<String> = ArrayList<String>()
+        for (i in listOfFiles.indices) {
+            if (listOfFiles[i].isFile()) {
+                list.add(listOfFiles[i].getAbsolutePath())
+            }
+        }
+        return list
+    }
+
     private fun decodeUtf8String(byteBuffer: ByteBuffer): String {
         return try {
             val byteArray = ByteArray(byteBuffer.remaining())

@@ -145,6 +145,7 @@ import 'package:untitled3/screens/binary_message_demo.dart';
 import 'package:untitled3/screens/event_channel_demo.dart';
 import 'package:untitled3/screens/method_channel_demo.dart';
 
+
 void main() {
   runApp(const MyApp());
 }
@@ -207,6 +208,13 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           ListTile(
             title: const Text("BasicMessageChannel"),
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const BasicChannelDemo()));
+            },
+          ),
+          ListTile(
+            title: const Text("FileChannel"),
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) => const BasicChannelDemo()));

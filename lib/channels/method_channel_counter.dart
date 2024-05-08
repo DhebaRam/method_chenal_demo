@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/services.dart';
 class MethodChannelCounter {
   // Create a method channel with the channel name "methodChannelDemo"
@@ -38,4 +40,19 @@ class MethodChannelCounter {
     // Return the result received from the native side
     return result!;
   }
+
+  //Get File List
+  Future<void> responseFromNativeCode() async {
+    List response = [];
+    try {
+      final List result = await methodChannel.invokeMethod('getFileList');
+      response = result;
+    } on PlatformException catch (e) {
+      log("${e.message}");
+    }
+    // setState(() {
+    //   _responseFromNativeCode = response;
+    // });
+  }
+
 }
