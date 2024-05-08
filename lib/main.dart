@@ -181,7 +181,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text("Platform Channels Github Demo 123"),
+        title: const Text("Platform Channels Github Demo "),
       ),
       body: Center(
           child: ListView(
